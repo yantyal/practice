@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="cheader.css">
+</head>
+
+<body>
+  
+  <div class="container">
+    <main></main>
+    <aside>
+      <div class="chart-box">
+        <canvas id="myChart"></canvas>
+      </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js">
+      </script>
+      <script>
+        var ctx = document.getElementById('myChart');
+        let unread=document.getElementById('unread').value;
+        let read=document.getElementById('read').value;
+        let want=document.getElementById('unread').value;
+        var myDoughnutChart = new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: ['未読', '既読', '読みたい'],
+            datasets: [{
+              data: [unread, read, want],
+              backgroundColor: ["#053e66", "#2b91d9", "#78b3dd"]
+            }]
+          },
+          options: {
+          title: {
+            display: true,
+            text: '全件数内訳'
+          }
+        }
+        });
+      </script>
+
+  <div class="chart-box">
+    <div id="chart">
+
+    </div>
+  </div>
+  <script src="https://unpkg.com/frappe-charts@1.2.4/dist/frappe-charts.min.iife.js"></script>
+  <script>
+    const data={
+      labels:["5日","6日","7日","8日","9日","10日","11日"],
+      datasets:[
+        {
+          values:[3,0,1,12,8,11,0]
+        }
+      ]
+    }
+    const chart = new frappe.Chart("#chart",{
+      title:"書籍登録数",
+      data:data,
+      type:'line'
+    })
+  </script>
+
+  </aside>
+  </div>
+
+</body>
+
+</html>

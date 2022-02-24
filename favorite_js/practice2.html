@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function showBlood() {
+            let radios = document.getElementById("form").blood;
+            let message = '';
+            for (let item of radios) {
+                if (item.checked) {
+                    message = item.value + 'が選択されました';
+                    break;
+                }
+            }
+            document.getElementById("result").textContent = message;
+        }
+    </script>
+    <script>
+        function getPrice() {
+            let itemPrice = document.getElementById("form2").item.value;
+            let itemCount = document.getElementById("form2").count.value;
+
+            if (itemCount === "") {
+                window.alert("select count of item ");
+            } else if (itemCount <= 0) {
+                window.alert("input correct number")
+            } else {
+                itemCount = Number(itemCount);
+                let totalPrice = Math.floor((itemPrice * itemCount) * 1.1);
+                document.getElementById("result2").textContent =
+                    'total Price is ' + totalPrice;
+            }
+        }
+    </script>
+    <script>
+        function showResult() {
+            let numberX = document.getElementById("form3").numberX.value;
+            let numberY = document.getElementById("form3").numberY.value;
+            if (numberX === "" || numberY === "") {
+                window.alert("input number");
+            } else {
+                numberX = Number(numberX);
+                numberY = Number(numberY);
+                let total = numberX + numberY;
+                let multiplication = numberX * numberY;
+                document.getElementById("result3").textContent = "x+Y= " + total;
+                document.getElementById("result4").textContent = "x*y= " + multiplication;
+            }
+        }
+    </script>
+    <script src="../js/practice3.js"></script>
+</head>
+
+<body>
+    <p>select your blood type and push the button</p>
+    <form action="" id="form">
+        <input type="radio" name="blood" value="A" id="blood_A" checked>
+        <label for="blood_A">typeA</label>
+        <input type="radio" name="blood" value="B" id="blood_B">
+        <label for="blood_B">typeB</label>
+        <input type="radio" name="blood" value="O" id="blood_O">
+        <label for="blood_O">typeO</label>
+        <input type="radio" name="blood" value="AB" id="blood_AB">
+        <label for="blood_AB">typeAB</label>
+
+        <input type="button" id="btnShow" value="show">
+    </form>
+    <p id="result"></p>
+    <script>
+        document.getElementById("btnShow").addEventListener('click', showBlood, false);
+    </script>
+
+    <p>select item and count and push the button</p>
+    <form action="" id="form2">
+        <select name="" id="item">
+            <option value="19800">24inchiMonitor(19800yen)</option>
+            <option value="5800">SDRAM 8GB(5800yen)</option>
+            <option value="9800">SSD 480GB(9800yen)</option>
+            <option value="3280">speaker(3280yen)</option>
+        </select>
+        <p>count:<input type="number" id="count" name="count" min="1" value="1"></p>
+        <input type="button" id="btnCalc" value="show">
+    </form>
+    <p id="result2"></p>
+    <script>
+        document.getElementById("btnCalc").addEventListener('click', getPrice, false);
+    </script>
+
+    <p>input x and y to calculate</p>
+    <form action="" id="form3">
+        <p>x:<input type="text" id="numberX" name="number"></p>
+        <p>y:<input type="text" id="numberY" name="number"></p>
+        <input type="button" id="btnCalc2" value="show">
+    </form>
+    <p id="result3"></p>
+    <br>
+    <p id="result4"></p>
+    <br>
+    <script>
+        document.getElementById("btnCalc2").addEventListener('click', showResult, false);
+    </script>
+
+    <p>input your name and push the button</p>
+    <hr>
+    <form action=""id="form4">
+        name:
+        <input type="text"name="userName"placeholder="input your name">
+        <input type="button" value="show"id="btnShow2">
+    </form>
+    <p id="result5"></p>
+
+
+
+
+</body>
+
+</html>

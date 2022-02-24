@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function showMessage() {
+            window.alert("the message is clicked");
+        }
+    </script>
+    <script>
+        function showName(){
+            let userName = document.getElementById("form").userName.value;
+            if(userName===""){
+                userName = 'empty';
+            }
+            document.getElementById("result").textContent = userName;
+        }
+    </script>
+    <script>
+        function showBlood(){
+            let radios = document.getElementById("form2").blood;
+            let message2 = "";
+            for(let item2 of radios){
+                if(item2.checked){
+                    message2 = item2.value + "が選択されました";
+                    break;
+                }
+            }
+            document.addEventListener("result2").textContent = message2;
+        }
+    </script>
+</head>
+
+<body>
+    <p onclick="showMessage()">click here to show the message</p>
+
+    <p id="target">click here to show the alert</p>
+    <script>
+        let node = document.getElementById("target");
+        node.onclick = showMessage;
+    </script>
+
+    <p id="target2">click here to show the alert</p>
+    <script>
+        let node2 = document.getElementById("target2");
+        node2.addEventListener('click',showMessage,false);
+    </script>
+
+    <form action="" id="form">
+        <input type="text" name="userName"placeholder="input your name">
+        <input type="button" id="btnShow" value="show">
+    </form>
+    <script>
+        document.getElementById("btnShow").addEventListener("click",showName,false);
+    </script>
+    <p id="result"></p>
+
+    <p>select your blood type and click the button</p>
+    <form action=""id="form2">
+        <p>blood type</p>
+        <input type="radio"name="blood"value="A"checked id="blood_A">
+        <label for="blood_A">typeA</label>
+        <input type="radio"name="blood"value="B"id="blood_B">
+        <label for="blood_B">typeB</label>
+        <input type="radio"name="blood"value="O"id="blood_O">
+        <label for="blood_O">typeO</label>
+        <input type="radio"name="blood"value="AB"id="blood_AB">
+        <label for="blood_AB">typeAB</label>
+        <input type="button" id="btnShow2" value="show2">
+        <br>
+    </form>
+    <script>
+        document.getElementById("btnShow2").addEventListener('click2',showBlood,false);
+    </script>
+    <p id="result2"></p>
+
+
+</body>
+
+</html>

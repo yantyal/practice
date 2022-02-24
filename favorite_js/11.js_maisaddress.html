@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サンプル-メールアドレスの分割</title>
+</head>
+<body>
+    <p>メールアドレス「user@example.com」をユーザー名/ドメイン名に分割</p>
+    <script>
+        let mail = 'user@example.com';
+        let atmark = mail.indexOf("@");
+        let user = mail.substring(0,atmark);
+        let domain = mail.substr(atmark+1);
+
+        console.log("メールアドレス："+mail);
+        console.log("ユーザー名："+user);
+        console.log("ドメイン名："+domain);
+    </script>
+
+    
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/practice5.js"></script>
+</head>
+<body>
+    <h1>create your account</h1>
+    <p id="miss"></p>
+    <hr>
+    name:
+    <input type="text"id="name"placeholder="input your name">
+    <br>
+    remark:
+    <input type="textarea"id="remark"placeholder="free to use here"
+    rows="4"clos="20">
+    <br>
+    pref:
+    <select name="area" id="area">
+        <optgroup label ="kinki">
+            <option value="kyoto"id="kyoto">kyoto</option>
+            <option value="osaka"id="osaka">osaka</option>
+        </optgroup>
+        <optgroup label="tokai">
+            <option value="aichi"id="aichi">aichi</option>
+            <option value="sizuoka"id="sizuoka">sizuoka</option>
+        </optgroup>
+    </select>
+    <br>
+    favorite team:
+    <input type="checkbox"name="teams"value="giants">giants
+    <input type="checkbox"name="teams"value="tigers">tigers
+    <input type="checkbox"name="teams"value="swallows">swallows
+    <br>
+    your skill:
+    <input type="radio"id="html"name="skill"value="HTML">
+    <label for="html">HTML</label>
+    <label for=""><input type="radio"id="CSS"name="skill"value="CSS">CSS</label>
+    <label for=""><input type="radio"id="JavaScript"name="skill"value="JavaScript"></label>
+    <br>
+    your age:
+    <select name="age" id="">
+        <option value="10's"id="10's">10's</option>
+        <option value="20's"id="20's">20's</option>
+        <option value="30's"id="30's">30's</option>
+        <option value="40's"id="40's">40's</option>
+        <option value="else"id="else">else</option>
+    </select>
+    <br>
+    <button id="btnShow">show the result</button>
+    <p id="result"></p>
+
+    
+    
+</body>
+</html>
