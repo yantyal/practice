@@ -1,0 +1,5 @@
+https://aws.amazon.com/jp/pricing/
+
+//費用計算calculator
+https://calculator.aws/#/
+https://calculator.s3.amazonaws.com/index.html?lng=ja_JP

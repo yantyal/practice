@@ -1,0 +1,21 @@
+//公式手順URL
+https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/hosting-wordpress.html
+
+
+//【WEBサーバ上で実行】
+//ディレクトリを~/wordpressに移動
+cd wordpress
+
+//wp-config-sample.phpをwp-config.phpという名前でコピー
+cp wp-config-sample.php wp-config.php
+
+//wp-config.phpを編集（上記URLを参照）
+vi wp-config.php
+
+//カレントディレクトリ以下全てを/var/www/html/にコピー
+cp -r * /var/www/html/
+
+// /etc/httpd/conf/httpd.confを編集（上記URLを参照）
+sudo vi /etc/httpd/conf/httpd.conf
+
+

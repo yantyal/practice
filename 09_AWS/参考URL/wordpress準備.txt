@@ -1,0 +1,5 @@
+//公式
+https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/hosting-wordpress.html
+
+//ユーザー作成時の注意
+https://teratail.com/questions/154798

@@ -1,0 +1,22 @@
+//ログインに必要なrootユーザのパスワードを確認
+sudo cat /var/log/mysqld.log | grep password
+
+//mysqlにrootユーザでログイン
+mysql -u root -p
+
+//rootユーザの初期パスワードの変更
+//パスワードポリシー（特殊記号含む、アルファベット大文字小文字含む、数字含む、8文字以上など）
+set password for root@localhost='[任意のパスワード]';	
+例：set password for root@localhost='(Root00pass)';
+
+//パスワードポリシーの確認
+show variables like 'validate_password%';
+
+//パスワードポリシーを’LOW’（文字数のみ確認）に変更
+set global validate_password.policy = LOW;
+
+//rootユーザの初期パスワードの変更
+set password for root@localhost='root00pass';
+
+//mysqlにrootユーザでログイン
+mysql -u root -p

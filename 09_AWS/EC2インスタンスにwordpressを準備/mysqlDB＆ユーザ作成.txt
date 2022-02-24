@@ -1,0 +1,25 @@
+//ユーザー作成時の注意URL
+https://teratail.com/questions/154798
+
+
+//wordpress用DBを作成
+CREATE DATABASE wordpress;
+
+//wordpress用接続ユーザを作成（上記URL参照）
+//ただし、該当ユーザの認証プラグインがmysql8以降、デフォルトで caching_sha2_password になっているが、
+//phpが対応していないため mysql_native_password でなければ認証失敗するためユーザ作成の際にオプション指定
+CREATE USER 'wordpress'@'%' IDENTIFIED BY 'wordpress00pass';	←これではダメ
+CREATE USER 'wordpress'@'%' IDENTIFIED WITH mysql_native_password  BY 'wordpress00pass';	←※超重要
+
+//プラグインが変更された状態でユーザが作成されたことを確認
+select user, host, plugin FROM mysql.user;
+
+//wordpressユーザにはwordpressデータベースに対するアクセスをすべて許可する
+grant all on wordpress.* to wordpress;
+
+//全ての変更を有効にするため、データベース権限をフラッシュする
+flush privileges;
+
+//DBとユーザが作成されたか確認
+show databases;
+select user, host from mysql.user;

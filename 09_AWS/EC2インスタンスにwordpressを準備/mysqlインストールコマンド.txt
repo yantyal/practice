@@ -1,0 +1,14 @@
+﻿//mariaDBと共存しないように既存のパッケージを削除
+sudo yum remove mariadb-libs
+
+//MySQLのリポジトリをyumに追加
+sudo yum localinstall https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
+
+//MySQLに必要なパッケージ(mysql-community-devel)を取得
+sudo yum install mysql-community-server
+
+//mysqlを起動
+sudo systemctl start mysqld
+
+//mysqlの自動起動を有効
+sudo systemctl enable mysqld
